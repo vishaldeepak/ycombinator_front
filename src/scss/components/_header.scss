@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  height: 50px;
+  background-color: #ff6600;
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+  }
+
+  &__headline {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__logo {
+    align-self: flex-start;
+    margin: auto 0;
+    width: 32px;
+    height: 32px;
+    flex-basis: auto;
+  }
+
+  &__menu-list {
+    font-size: .75rem;
+  }
+
+  &__login {
+    align-self: flex-end;
+    font-size: .75rem;
+    margin: auto;
+  }
+}
