@@ -1,40 +1,13 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
-  constructor() {
-    super();
-    this.state = {
-      menu: {
-        item_1: {
-          value: "new |"
-        },
-        item_2: {
-          value: " past |"
-        },
-        item_3: {
-          value: " comments |"
-        },
-        item_4: {
-          value: " ask |"
-        },
-        item_5: {
-          value: " show |"
-        },
-        item_6: {
-          value: " jobs |"
-        },
-        item_7: {
-          value: " submit"
-        },
-      }
-    };
-  }
 
   renderMenu = key => {
     return(
       <span key={key}>
-        <span>{this.state.menu[key].value}</span>
+        <Link className="header__link" to={"/".concat(`${this.props.menu[key].link}`)}>{this.props.menu[key].value}</Link>
       </span>
     )
   }
@@ -45,7 +18,7 @@ class Header extends Component {
         <div className="header__menu">
           <h4 className="header__headline">Hacker News</h4>
           <span className="header__menu-list">
-            {Object.keys(this.state.menu).map(this.renderMenu)}
+            {Object.keys(this.props.menu).map(this.renderMenu)}
           </span>
         </div>
         <div className="header__login">

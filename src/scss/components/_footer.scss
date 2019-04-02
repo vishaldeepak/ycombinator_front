@@ -1,0 +1,8 @@
+.footer {
+  background-color: $mainWhite;
+
+  &__line {
+    height: 3px;
+    background-color: $mainOrange;
+  }
+}

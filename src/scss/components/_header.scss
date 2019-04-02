@@ -1,7 +1,8 @@
 .header {
   display: flex;
-  height: 50px;
-  background-color: #ff6600;
+  height: auto;
+  padding-bottom: 5px;
+  background-color: $mainOrange;
 
   &__menu {
     display: flex;
@@ -27,8 +28,13 @@
   }
 
   &__login {
-    align-self: flex-end;
     font-size: .75rem;
+    padding-right: 5px;
     margin: auto;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
   }
 }
