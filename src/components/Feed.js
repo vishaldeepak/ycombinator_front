@@ -5,6 +5,11 @@ import {
 
 class Feed extends Component {
 
+  //these render stuffs are just
+  //placeholders 
+  //i was thinking we make components for every menu item
+  //cause this component might be too big otherwise
+  //unless i can come up with a way to do it dynamically using one function or component
   renderView = () => {
     return(
       <h1>Feed</h1>
