@@ -2,10 +2,20 @@
   height: 100%;
 
   &__form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__form-input {
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+
+    & input {
+      margin-left: 10px;
+    }
   }
 
   &__headline {
@@ -13,7 +23,7 @@
   }
 
   &__button {
-    margin-top: .5rem;
+    margin-top: 10px;
   }
 }
 
