@@ -1,0 +1,19 @@
+.login {
+  height: 100%;
+
+  &__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 2rem;
+  }
+
+  &__headline {
+    text-align: center;
+  }
+
+  &__button {
+    margin-top: .5rem;
+  }
+}
+

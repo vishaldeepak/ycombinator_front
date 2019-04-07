@@ -1,8 +1,36 @@
 .footer {
+  display: flex;
+  height: auto;
+  justify-content: center;
+  padding-bottom: 5px;
   background-color: $mainWhite;
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    align-items: center;
+  }
 
   &__line {
     height: 3px;
     background-color: $mainOrange;
+  }
+
+  &__menu-list {
+    font-size: .75rem;
+    padding-bottom: 1rem;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  @include atMedium {
+    &__menu-list {
+      font-size: .9rem;
+    }
   }
 }

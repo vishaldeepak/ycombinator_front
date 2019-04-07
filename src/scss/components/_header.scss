@@ -1,13 +1,14 @@
 .header {
   display: flex;
-  height: auto;
+  height: 50px;
   padding-bottom: 5px;
   background-color: $mainOrange;
 
   &__menu {
     display: flex;
     flex-direction: column;
-    margin-top: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   &__headline {
@@ -27,14 +28,36 @@
     font-size: .75rem;
   }
 
+  &__space {
+    margin: auto;
+  }
+
   &__login {
     font-size: .75rem;
-    padding-right: 5px;
-    margin: auto;
+    margin: auto 0;
+    padding-right: 1rem;
+    flex-basis: auto;
+    align-self: flex-end;
   }
 
   &__link {
     text-decoration: none;
     color: inherit;
+  }
+
+  @include atMedium {
+    &__menu {
+      flex-direction: row;
+    }
+
+    &__menu-list {
+      font-size: .9rem;
+      padding-left: 32px;
+    }
+
+    &__login {
+      font-size: .9rem;
+    }
+
   }
 }

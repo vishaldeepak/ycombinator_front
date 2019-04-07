@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   Route
 } from 'react-router-dom';
+import Login from './Login';
 
 class Feed extends Component {
 
@@ -57,6 +58,12 @@ class Feed extends Component {
       <div className="feed">
         <Route exact path ='/' component={this.renderView} />
         <Route exact path ='/new' component={this.renderViewNew} />
+        <Route exact path ='/past' component={this.renderViewPast} />
+        <Route exact path ='/comments' component={this.renderViewComments} />
+        <Route exact path ='/ask' component={this.renderViewAsk} />
+        <Route exact path ='/show' component={this.renderViewShow} />
+        <Route exact path ='/submit' component={this.renderViewSubmit} />
+        <Route exact path ='/login' component={Login} />
       </div>
     );
   }
