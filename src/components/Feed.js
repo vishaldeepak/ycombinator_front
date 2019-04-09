@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import {
   Route
 } from 'react-router-dom';
-import Login from './Login';
+import Auth from './Auth';
 
 class Feed extends Component {
 
   //these render stuffs are just
-  //placeholders 
+  //placeholders
   //i was thinking we make components for every menu item
   //cause this component might be too big otherwise
   //unless i can come up with a way to do it dynamically using one function or component
@@ -63,7 +63,7 @@ class Feed extends Component {
         <Route exact path ='/ask' component={this.renderViewAsk} />
         <Route exact path ='/show' component={this.renderViewShow} />
         <Route exact path ='/submit' component={this.renderViewSubmit} />
-        <Route exact path ='/login' component={Login} />
+        <Route exact path ='/login' component={Auth} />
       </div>
     );
   }

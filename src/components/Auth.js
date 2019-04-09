@@ -1,28 +1,27 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../store/actions/indexAction';
 
-class Login extends Component {
-  constructor() {
-    super();
-    this.state = {
-      formControl: {
-        username: {
-          value: ""
-        },
-        password: {
-          value: ""
-        },
-        createUsername: {
-          value: ""
-        },
-        createPassword: {
-          value: ""
-        },
-        confirmPassword: {
-          value: ""
-        },
-      }
-    };
+class Auth extends Component {
+state = {
+  formControl: {
+    username: {
+      value: ""
+    },
+    password: {
+      value: ""
+    },
+    createUsername: {
+      value: ""
+    },
+    createPassword: {
+      value: ""
+    },
+    confirmPassword: {
+      value: ""
+    },
   }
+};
 
   handleOnChange = e => {
     const name = e.target.name;
@@ -51,7 +50,7 @@ class Login extends Component {
 
   renderLoginForm = () => {
     return (
-      <form className="login__form"> 
+      <form className="login__form">
         <div className="login__form-input">username: <input
             type="text"
             name="username"
@@ -73,10 +72,10 @@ class Login extends Component {
 
   renderCreateAccountForm = () => {
     return (
-      <form 
+      <form
         className="login__form"
         onSubmit={this.handleOnSubmitCreateAccount}
-      > 
+      >
         <div className="login__form-input">username: <input
             type="text"
             name="createUsername"
@@ -91,7 +90,7 @@ class Login extends Component {
             onChange={this.handleOnChange}
           />
         </div>
-        <div className="login__form-input">confirm password: <input 
+        <div className="login__form-input">confirm password: <input
             type="password"
             name="confirmPassword"
             value={this.state.formControl.confirmPassword.value}
@@ -116,6 +115,23 @@ class Login extends Component {
       </div>
     )
   }
-} 
+}
 
-export default Login;
+const mapStateToProps = state => {
+  return {
+    loading: state.loading,
+    error: state.error,
+    isAuthenticated: state.token !== null,
+    authRedirectPath: state.redirectPath
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+      onAuth: (email, password, isSignUp) => dispatch(actions.auth(email, password, isSignUp)),
+      setAuthRedirect: () => dispatch(actions.setAuthRedirectPath("/"))
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);
