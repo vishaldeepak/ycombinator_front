@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "../logo.svg";
+import logo from "../../assets/images/logo.svg";
 import { Link } from "react-router-dom";
 
 class Header extends Component {
@@ -27,7 +27,7 @@ class Header extends Component {
         </div>
         <div className="header__space"></div>
         <div className="header__login">
-          <Link 
+          <Link
             className="header__link"
             to={"/login"}>login
           </Link>

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Header from "./Header";
+import Header from "./Navigation/Header";
 import Feed from "./Feed";
-import Footer from "./Footer";
+import Footer from "./Navigation/Footer";
 import { getMenuItem, getFooterItems } from "../helpers";
-import { 
+import {
   BrowserRouter,
 } from "react-router-dom";
 
@@ -19,10 +19,10 @@ class App extends Component {
     return (
       <div className="main-layout">
         <BrowserRouter>
-          <Header 
+          <Header
             menu={ this.state.headerMenu }
           />
-          <Feed 
+          <Feed
             menu={ this.state.headerMenu }
             footerMenu={ this.state.footerMenu }
           />
