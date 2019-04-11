@@ -48,9 +48,14 @@ state = {
     }
   }
 
+  loginSubmitHandler = (event) => {
+    event.preventDefault();
+    this.props.onAuth(this.state.formControl.username.value, this.state.formControl.password.value,false);
+  }
+
   renderLoginForm = () => {
     return (
-      <form className="login__form">
+      <form className="login__form" onSubmit={this.loginSubmitHandler}>
         <div className="login__form-input">username: <input
             type="text"
             name="username"
@@ -65,7 +70,7 @@ state = {
             onChange={this.handleOnChange}
           />
         </div>
-        <button className="login__button">login</button>
+        <button type="submit" className="login__button">login</button>
       </form>
     )
   }
@@ -128,7 +133,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-      onAuth: (email, password, isSignUp) => dispatch(actions.auth(email, password, isSignUp)),
+      onAuth: (username, password, isSignUp) => dispatch(actions.auth(username, password, isSignUp)),
       setAuthRedirect: () => dispatch(actions.setAuthRedirectPath("/"))
   };
 };

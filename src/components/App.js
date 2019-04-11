@@ -3,9 +3,8 @@ import Header from "./Navigation/Header";
 import Feed from "./Feed";
 import Footer from "./Navigation/Footer";
 import { getMenuItem, getFooterItems } from "../helpers";
-import {
-  BrowserRouter,
-} from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
+import Auth from "../containers/Auth";
 
 class App extends Component {
   constructor() {
@@ -16,6 +15,14 @@ class App extends Component {
     }
   }
   render() {
+    let routes = (
+      <Switch>
+        <Route path="/auth" component={Auth} />
+        <Route path="/" component={Auth} />
+        <Redirect to="/" />
+      </Switch>
+    )
+
     return (
       <div className="main-layout">
         <BrowserRouter>

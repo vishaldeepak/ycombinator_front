@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import {
-  Route
-} from 'react-router-dom';
-import Auth from './Auth';
+import { Route } from 'react-router-dom';
+import Auth from '../containers/Auth';
 
 class Feed extends Component {
 

@@ -5,16 +5,14 @@ import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import 'semantic-ui-css/semantic.min.css';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
+import thunk from 'redux-thunk';
 import authReducer from './store/reducers/authReducer';
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
 const store = createStore(authReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-
-// const store = createStore(
-//   reducer, /* preloadedState, */
-
-// );
+    composeEnhancers(applyMiddleware(thunk)));
 
 const app = (
   <Provider store={store}>
