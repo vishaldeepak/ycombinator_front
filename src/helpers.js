@@ -1,4 +1,4 @@
-export function getMenuItem() {
+export function getMenuItems() {
   const menu = {
     item1: {
       value: "new |",
@@ -32,7 +32,7 @@ export function getMenuItem() {
     },
   };
   return menu;
-} 
+}
 
 export function getFooterItems() {
   const footerMenu = {

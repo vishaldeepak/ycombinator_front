@@ -10,8 +10,9 @@ const authStart = () => {
 const authSuccess = (authData) => {
   return {
       type: actionTypes.AUTH_SUCCESS,
-      idToken: authData.token,
+      token: authData.token,
       userId: authData.userId,
+      damm: authData.token,
       username: authData.username
   };
 };

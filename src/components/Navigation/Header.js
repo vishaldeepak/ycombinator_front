@@ -1,40 +1,57 @@
-import React, { Component } from "react";
+import React from "react";
 import logo from "../../assets/images/logo.svg";
 import { Link } from "react-router-dom";
+import {  getMenuItems } from "../../helpers";
+import Aux from "../../hoc/aux";
 
-class Header extends Component {
-  renderMenu = key => {
+const header = (props) => {
+  let menu = getMenuItems();
+
+  let renderMenu = key => {
     return (
       <span key={key}>
         <Link
           className="header__link"
-          to={"/".concat(`${this.props.menu[key].link}`)}
+          to={"/".concat(`${menu[key].link}`)}
         >
-          {this.props.menu[key].value}
+          {menu[key].value}
         </Link>
       </span>
     );
   };
-  render() {
-    return (
-      <nav className="header">
-        <img src={logo} className="header__logo" alt="logo" />
-        <div className="header__menu">
-          <h4 className="header__headline">Hacker News</h4>
-          <span className="header__menu-list">
-            {Object.keys(this.props.menu).map(this.renderMenu)}
-          </span>
-        </div>
-        <div className="header__space"></div>
-        <div className="header__login">
-          <Link
-            className="header__link"
-            to={"/login"}>login
-          </Link>
-        </div>
-      </nav>
-    );
+
+  let rightControls = (
+    <Link className="header__link" to={"/login"}>login</Link>
+  );
+
+  if(props.isAuthenticated){
+    rightControls = (
+      <Aux>
+        <Link
+          className="header__link"
+          to={"/user"}>
+          {props.username}
+        </Link>
+        <h3>props.username</h3>
+      </Aux>
+    )
   }
+
+  return(
+    <nav className="header">
+    <img src={logo} className="header__logo" alt="logo" />
+    <div className="header__menu">
+      <h4 className="header__headline">Hacker News</h4>
+      <span className="header__menu-list">
+        {Object.keys({...menu}).map(renderMenu)}
+      </span>
+    </div>
+    <div className="header__space"></div>
+    <div className="header__login">
+      {rightControls}
+    </div>
+  </nav>
+  )
 }
 
-export default Header;
+export default header;

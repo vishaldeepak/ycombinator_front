@@ -3,6 +3,7 @@ import * as action_types from "../actions/actionTypes";
 const initialState = {
   token: null,
   userId: null,
+  username: null,
   error: null,
   loading: false,
   redirectPath: "/"
@@ -28,7 +29,8 @@ const logout = (state) => {
   return {
     ...state,
     token: null,
-    userId: null
+    userId: null,
+    username: null
   }
 }
 
@@ -43,8 +45,9 @@ const setRedirect = (state, action) => {
 const authSuccess = (state, action) => {
   return {
     ...state,
-    token: action.idToken,
+    token: action.token,
     userId: action.userId,
+    damm: action.damm,
     username: action.username,
     error: null,
     loading: false
