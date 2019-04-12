@@ -32,7 +32,12 @@ const header = (props) => {
           to={"/user"}>
           {props.username}
         </Link>
-        <h3>props.username</h3>
+        <Link
+          className="header__link"
+          to={"/logout"}
+        >
+        Logout
+        </Link>
       </Aux>
     )
   }

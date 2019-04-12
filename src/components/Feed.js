@@ -54,14 +54,14 @@ class Feed extends Component {
   render() {
     return(
       <div className="feed">
-        <Route exact path ='/' component={this.renderView} />
+        {/* <Route exact path ='/' component={this.renderView} />
         <Route exact path ='/new' component={this.renderViewNew} />
         <Route exact path ='/past' component={this.renderViewPast} />
         <Route exact path ='/comments' component={this.renderViewComments} />
         <Route exact path ='/ask' component={this.renderViewAsk} />
         <Route exact path ='/show' component={this.renderViewShow} />
-        <Route exact path ='/submit' component={this.renderViewSubmit} />
-        <Route exact path ='/login' component={Auth} />
+        <Route exact path ='/submit' component={this.renderViewSubmit} /> */}
+        {/* <Route exact path ='/login' component={Auth} /> */}
       </div>
     );
   }

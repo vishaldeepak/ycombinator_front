@@ -72,7 +72,7 @@ export const setAuthInitial = () => {
         }else {
           const userId = localStorage.getItem("userId")
           const username = localStorage.getItem("username")
-          dispatch(authSuccess({idToken: token, userId: userId, username: username}))
+          dispatch(authSuccess({token: token, userId: userId, username: username}))
         }
     }
 }

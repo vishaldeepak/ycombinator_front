@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import Header from '../components/Navigation/Header';
 import Footer from '../components/Navigation/Footer';
-import Feed from '../components/Feed';
 import {  getFooterItems } from "../helpers";
 
 class Layout extends Component {
@@ -18,12 +17,9 @@ class Layout extends Component {
       <Aux>
         <Header
           isAuthenticated={this.props.isAuthenticated}
-          userName={this.props.username}
+          username={this.props.username}
         />
-        <Feed
-          menu={ this.state.headerMenu }
-          footerMenu={ this.state.footerMenu }
-        />
+        {this.props.children}
         <div className="footer__line"></div>
         <Footer
           footerMenu={ this.state.footerMenu }
@@ -36,7 +32,7 @@ class Layout extends Component {
 const mapStateToProps = (state) => {
   return {
     isAuthenticated: (state.token !== null),
-    userName: state.username
+    username: state.username
   };
 }
 

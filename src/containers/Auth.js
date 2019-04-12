@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions/indexAction';
+import { Redirect } from 'react-router-dom';
 
 class Auth extends Component {
 state = {
@@ -108,6 +109,10 @@ state = {
   }
 
   render() {
+    if(this.props.isAuthenticated){
+      return <Redirect to={this.props.authRedirectPath}/>
+    }
+
     return(
       <div className="login">
 

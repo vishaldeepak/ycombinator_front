@@ -4,6 +4,7 @@ import Layout from '../containers/Layout';
 import { BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
 import Auth from "../containers/Auth";
 import Feed from './Feed';
+import Logout from "../containers/Logout";
 import * as actions from '../store/actions/indexAction';
 
 class App extends Component {
@@ -14,20 +15,30 @@ class App extends Component {
   render() {
     let routes = (
       <Switch>
-        <Route path="/auth" component={Auth} />
-        <Route path="/" component={Feed} />
+        <Route exact path="/" component={Feed} />
+        <Route exact path="/login" component={Auth} />
         <Redirect to="/" />
       </Switch>
     )
 
+    if(this.props.isAuthenticated){
+      routes = (
+        <Switch>
+          <Route path="/logout" component={Logout} />
+          <Route path="/" exact component={Feed} />
+          <Redirect to="/" />
+        </Switch>
+      )
+    }
+
     return (
-      <div className="main-layout">
-        <BrowserRouter>
+      <BrowserRouter>
+        <div className="main-layout">
           <Layout>
             {routes}
           </Layout>
-        </BrowserRouter>
-      </div>
+        </div>
+      </BrowserRouter>
     );
   }
 }
