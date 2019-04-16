@@ -6,6 +6,7 @@ import Auth from "../containers/Auth";
 import Feed from './Feed';
 import Logout from "../containers/Logout";
 import * as actions from '../store/actions/indexAction';
+import Posts from "../components/Posts/Posts";
 
 class App extends Component {
   componentDidMount(){
@@ -15,7 +16,7 @@ class App extends Component {
   render() {
     let routes = (
       <Switch>
-        <Route exact path="/" component={Feed} />
+        <Route exact path="/" component={Posts} />
         <Route exact path="/login" component={Auth} />
         <Redirect to="/" />
       </Switch>
@@ -25,7 +26,8 @@ class App extends Component {
       routes = (
         <Switch>
           <Route path="/logout" component={Logout} />
-          <Route path="/" exact component={Feed} />
+          <Route exact path="/" component={Posts} />
+
           <Redirect to="/" />
         </Switch>
       )

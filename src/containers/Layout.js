@@ -19,7 +19,9 @@ class Layout extends Component {
           isAuthenticated={this.props.isAuthenticated}
           username={this.props.username}
         />
-        {this.props.children}
+        <div className="feed">
+          {this.props.children}
+        </div>
         <div className="footer__line"></div>
         <Footer
           footerMenu={ this.state.footerMenu }
