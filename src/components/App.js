@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
-import Layout from '../containers/Layout';
+import Layout from '../containers/Layout/Layout';
 import { BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
 import Auth from "../containers/Auth";
-import Feed from './Feed';
 import Logout from "../containers/Logout";
 import * as actions from '../store/actions/indexAction';
 import Posts from "../components/Posts/Posts";

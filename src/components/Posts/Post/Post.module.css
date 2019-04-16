@@ -22,10 +22,11 @@
   font-size: 13px;
   font-family: Verdana, Geneva, sans-serif;
   color: #000000;
+  margin-left: 5px;
 }
 
 .titleInfo{
-  margin-left: 35px;
+  margin-left: 40px;
   font-size: 10px;
 }
 

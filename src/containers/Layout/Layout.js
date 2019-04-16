@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Aux from '../hoc/aux';
+import Aux from '../../hoc/aux';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import Header from '../components/Navigation/Header';
-import Footer from '../components/Navigation/Footer';
-import {  getFooterItems } from "../helpers";
+import Header from '../../components/Navigation/Header';
+import Footer from '../../components/Navigation/Footer';
+import classes from './Layout.module.css';
+import {  getFooterItems } from "../../helpers";
 
 class Layout extends Component {
 
@@ -19,7 +20,7 @@ class Layout extends Component {
           isAuthenticated={this.props.isAuthenticated}
           username={this.props.username}
         />
-        <div className="feed">
+        <div className={classes.layoutContainer}>
           {this.props.children}
         </div>
         <div className="footer__line"></div>
